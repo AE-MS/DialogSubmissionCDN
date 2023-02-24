@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Dialog Submission</title>
+        <script
+        src="https://res.cdn.office.net/teams-js/2.8.0/js/MicrosoftTeams.min.js"
+        integrity="sha384-/DJ9oJEFZSpGiUQx9Na5Yb5svOPPqSb3khKxJ/YgoZ2GtrkzWgSTBpESy3LvMPVk"
+        crossorigin="anonymous"
+        ></script>
+    </head>
+
+    <body>
+        <script>
+            submitHandler = ({err, result}) => {
+                console.log(`Submit handler - err: ${err}, result: ${result}`);
+                document.getElementById("dialogResult").innerText = `Submit handler - err: ${err}, result: ${result}`;
+            }
+
+            microsoftTeams.initialize(() => {
+                console.log("Teams initialized");
+
+                if (microsoftTeams.getContext((context) => {
+                    if (context.frameContext === "content") {
+                        console.log("In content frame");
+
+                        document.getElementById("submitButton").style.display = "none";
+
+                        microsoftTeams.dialog.url.open({
+                            url: window.location.href,
+                            title: "Dialog Bug Test",
+                            size: { height: 600, width: 600 },
+                            },
+                        submitHandler);
+                    } else {
+                        console.log("In dialog frame");
+
+                        document.getElementById("submitButton").style.display = "block";
+                    }
+                }
+                ));
+            });
+
+        </script>
+
+        <h1>Dialog Bug Test</h1>
+
+        Dialog result:
+        <div id="dialogResult"></div>
+
+        <input type="button" id="submitButton" value="Submit" style="display:none" onclick="microsoftTeams.dialog.url.submit('submitted!');" />
+    </body>
+
+</html>

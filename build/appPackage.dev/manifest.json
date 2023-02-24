@@ -1,0 +1,51 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.14",
+    "version": "1.0.0",
+    "id": "72c19c7f-af54-47c2-8e06-a700e0d67ecd",
+    "packageName": "com.microsoft.teams.extension",
+    "developer": {
+        "name": "Teams App, Inc.",
+        "websiteUrl": "https://www.example.com",
+        "privacyUrl": "https://www.example.com/termofuse",
+        "termsOfUseUrl": "https://www.example.com/privacy"
+    },
+    "icons": {
+        "color": "resources/color.png",
+        "outline": "resources/outline.png"
+    },
+    "name": {
+        "short": "DialogCDN",
+        "full": "DialogCDN"
+    },
+    "description": {
+        "short": "DialogCDN",
+        "full": "DialogCDN"
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [],
+    "composeExtensions": [],
+    "configurableTabs": [],
+    "staticTabs": [
+        {
+            "entityId": "index0",
+            "name": "Personal Tab",
+            "contentUrl": "https://dialogsubmissioncdn.z1.web.core.windows.net/",
+            "websiteUrl": "https://dialogsubmissioncdn.z1.web.core.windows.net/",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "dialogsubmissioncdn.z1.web.core.windows.net"
+    ],
+    "webApplicationInfo": {
+        "id": "4230dba4-4674-4105-8c84-626ff8fe3f58",
+        "resource": "api://dialogsubmissioncdn.z1.web.core.windows.net/4230dba4-4674-4105-8c84-626ff8fe3f58"
+    }
+}
